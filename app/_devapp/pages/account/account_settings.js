@@ -23,13 +23,13 @@ export class AccountSettings extends Component
     saveData(){
         let success=true;
         let msg_type='Account';
-        console.log(this.props);
+        /*console.log(this.props);
         if(success){
             this.props.message('success',msg_type,'Settings saved successfully');
         }
         else{
             this.props.message('error',msg_type,'Error Saving');
-        }
+        }*/
 
     }
     render(){

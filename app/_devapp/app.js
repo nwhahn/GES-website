@@ -195,9 +195,9 @@ class Myapp extends Component{
         let account_field;
         if(this.state.loggedIn) {
             let account_items=[
-                {label: 'My Cart', icon: 'pi pi-fw pi-shopping-cart'},
-                {label: 'My Quotes', icon: 'pi pi-fw pi-comment'},
-                {label: 'My Wishlists', icon: 'pi pi-fw pi-tags'},
+                {label: 'My Cart', icon: 'pi pi-fw pi-shopping-cart',command:()=>{ window.location.hash="/store/cart"; }},
+                {label: 'My Quotes', icon: 'pi pi-fw pi-comment',command:()=>{ window.location.hash="/store/quotes"; }},
+                {label: 'My Wishlists', icon: 'pi pi-fw pi-tags',command:()=>{ window.location.hash="/store/wishlists"; }},
                 {label: 'Account Settings', icon: 'pi pi-fw pi-cog', command:()=>{ window.location.hash="/account"; }},
                 {label: 'Sign Out', icon: 'pi pi-fw pi-power-off', command:()=>{this.logOut();}}
             ];
