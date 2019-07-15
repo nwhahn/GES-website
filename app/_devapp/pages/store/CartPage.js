@@ -10,7 +10,9 @@ export class CartPage extends Component{
         this.state = {
             first:0,
             sortKey:0,
-            totalCost:0.00
+            totalCost:0.00,
+            layout:'list',
+            items:[1]
         };
         this.sortOptions=[
             {label: 'Newest First', value: '!year'},
@@ -18,23 +20,17 @@ export class CartPage extends Component{
             {label: 'Brand', value: 'brand'}
         ];
     }
-    render(){
-        const header = (
-            <div className="p-grid">
-                <div className="p-col-12 p-lg-4 p-md-6">
-                    AAAA
-                </div>
-                <div className="p-col-12 p-lg-4 p-md-6">
-                    <div className={"p-grid"}>
-                        <div className={"totalCost"}>
-                            <span>Cart Total:</span>${this.state.totalCost}
-                        </div>
-
-                    </div>
-
-                </div>
+    renderCartItem(item){
+        return (
+            <div className="p-col-12" style={{padding: '2em', borderBottom: '1px solid #d9d9d9'}}>
+                Item
             </div>
+
         );
+    }
+
+    render(){
+
         return(
           <div className={"section"}>
               <div className="section">
@@ -45,8 +41,15 @@ export class CartPage extends Component{
                       </div>
                   </div>
                   <div className={"section-content"}>
-                      <DataView paginator={true} rows={10} header={header} first={this.state.first} onPage={(e) => this.setState({first: e.first})} />
+                      {this.state.items.length ?
+                          <DataView value={this.state.items} layout={this.state.layout} itemTemplate={this.renderCartItem} paginator={true} rows={10} first={this.state.first}
+                                    onPage={(e) => this.setState({first: e.first})}/>
+                                    :
+                          <h3>Your Cart is Empty</h3>
+                      }
                   </div>
+
+
               </div>
           </div>
         );

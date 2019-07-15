@@ -15,11 +15,15 @@ export class Contact extends Component{
             sent_text:'',
             no_subject:false
         };
-
+        this.callPhone=this.callPhone.bind(this);
     }
 
     onSend(){
 
+    }
+    callPhone(){
+        //console.log('call');
+        window.location.href="tel:315-488-3161";
     }
     render(){
         return(
@@ -31,8 +35,9 @@ export class Contact extends Component{
                             <div className="section-header-inner-border"/>
                         </div>
                     </div>
-                    <div className="section-content">
-                        <Button label="315-488-3161" className="p-button-raised p-button-rounded p-button-success" icon={"pi pi-phone"}/>
+                    <div className="section-content p-grid p-justify-center">
+                        <div className={"p-col"}><Button className="p-button-raised p-button-rounded p-button-success" icon="fa fa-phone" onClick={this.callPhone}/><a href="tel:315-488-3161"> 315-488-3161</a></div>
+                        <div className={"p-col"}><Button className="p-button-raised p-button-rounded p-button-success" icon="fa fa-fax"/><a> +315-488-3161</a></div>
                     </div>
                     <div className="section-header">
                         <h3 className="section-header-title">Location</h3>

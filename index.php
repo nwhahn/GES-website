@@ -18,6 +18,7 @@ $title='Website';
             <link rel="stylesheet" href="./app/node_modules/primereact/resources/primereact.min.css" type="text/css">
             <link rel="stylesheet" href="./app/node_modules/primeicons/primeicons.css" type="text/css">
             <link rel="stylesheet" href="./app/node_modules/primeflex/primeflex.css" type="text/css">
+            <link rel="stylesheet" href="./app/node_modules/font-awesome/scss/font-awesome.css" type="text/css">
         </head>
         <script type="text/javascript">
             var STATIC_URL = 'http://localhost/website/';

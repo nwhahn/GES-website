@@ -2,6 +2,10 @@ body {
   background-color: #141414;
 }
 
+.homeMenu {
+  margin-top: 60px;
+}
+
 .paragraph {
   color: #fff;
 }

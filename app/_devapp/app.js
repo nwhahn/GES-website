@@ -10,6 +10,7 @@ import {Button} from 'primereact/button'
 import { render } from 'react-dom';
 import {Growl} from 'primereact/growl';
 import {BreadCrumb} from 'primereact/breadcrumb';
+import {Menubar} from "primereact/menubar";
 
 //Global Components - user defined
 import { Login } from './login';
@@ -64,6 +65,38 @@ class Myapp extends Component{
         this.onSearchBtnClick=this.onSearchBtnClick.bind(this);
         this.getNavItems=this.getNavItems.bind(this);
 
+        this.homeMenu=[
+            {
+                label:'Home',
+                icon:'pi pi-fw pi-home', url:'./'
+            },
+            {
+                label:'Lamp Repair'
+            },
+            {
+                label:'Materials Counter'
+            },
+            {
+                label:'Lighting Department'
+            },
+            {label:'About Us',icon:'pi pi-fw pi-info',url:'./#/about'},
+            {label:'Contact',icon:'pi pi-fw pi-user',url:'./#/contact/'},
+            {
+                label:'Store',
+                icon:'pi pi-fw pi-shopping-cart',
+                items:[
+                    {label:'Store Home',icon:'pi pi-fw pi-external-link', url:'./#/store/'},
+                    {label:'Switches',icon:'pi pi-fw pi-angle-right', url:'./#/store/type/switches'},
+                    {label:'Wire',icon:'pi pi-fw pi-angle-right', url:'./#/store/type/wire'},
+                    {label:'Conduit',icon:'pi pi-fw pi-angle-right', url:'./#/store/type/conduit'},
+                    {label:'Outlets',icon:'pi pi-fw pi-angle-right', url:'./#/store/type/outlets'},
+                ]
+            }
+
+
+
+        ]
+        console.log(window.location.hash);
 
     }
     onMenuButtonClick(){
@@ -215,7 +248,8 @@ class Myapp extends Component{
 
 
         const home={icon:'pi pi-home',url:'./'}
-        let navmenu=<BreadCrumb id={'nav-menu'} model={this.getNavItems()} home={home}/>;
+        let navmenu_store=<BreadCrumb id={'nav-menu'} model={this.getNavItems()} home={home}/>;
+        let navmenu_home=<Menubar className={"homeMenu p-col-12"} model={this.homeMenu}/>;
         return(
             <div className="layout-wrapper">
                 <div className="layout-header">
@@ -246,7 +280,7 @@ class Myapp extends Component{
 
                     </ul>
                 </div>
-                {window.location.hash==='#/' ? null: navmenu}
+                {window.location.hash.startsWith('#/store') ? navmenu_store: navmenu_home}
 
                 <div id="layout-content" className="p-growl-container">
 

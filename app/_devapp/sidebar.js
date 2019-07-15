@@ -10,7 +10,8 @@ export class SidebarMenu extends Component{
     constructor(props){
         super(props);
         this.state={
-            search:''
+            search:'',
+            current:0
         }
         this.onSearchBtnClick=this.onSearchBtnClick.bind(this);
     }
@@ -29,7 +30,7 @@ export class SidebarMenu extends Component{
             {label:'Lamp Repair',icon:'pi pi-fw pi-angle-right'},
             {label:'Materials Counter',icon:'pi pi-fw pi-angle-right'},
             {label:'Lighting Department',icon:'pi pi-fw pi-angle-right'},
-            {label:'About',icon:'pi pi-fw pi-info',url:'./'},
+            {label:'About',icon:'pi pi-fw pi-info',url:'./#/about'},
             {label:'Contact',icon:'pi pi-fw pi-user',url:'./#/contact/'},
         ];
 

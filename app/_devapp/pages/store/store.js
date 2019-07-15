@@ -3,6 +3,7 @@ import {Route,Link,HashRouter} from 'react-router-dom';
 
 import {ProductPage} from './ProductPage';
 import {CustomerQuote} from './CustomerQuote';
+import {CustomerQuoteList} from './CustomerQuoteList';
 import {CustomerWishlist} from './CustomerWishlist';
 import {CartPage} from './CartPage';
 
@@ -13,6 +14,8 @@ import {Rating} from "primereact/rating";
 
 import {HomeComponent} from "../home/HomeComponent";
 import {AccountSettings} from "../account/account_settings";
+
+require('jquery');
 
 export class Item extends Component{
     constructor(props){
@@ -32,10 +35,26 @@ export class Item extends Component{
                 {label:'Add to Comparison',icon:'pi pi-chart-bar'},
             ]
         };
+        let this_obj=this;
+        this.allowed_fields=['name','mfq','desc','img','rating','SKU','new'];
+        jQuery.post("./ajax_php/get_item_data.php",{id:this.state.id}).done(function(data){
+
+            let entries = Object.entries(JSON.parse(data));
+            for (const entry of entries){
+                if(this_obj.allowed_fields.includes(entry[0])){
+                    //console.log(entry);
+                    this_obj.setState({[entry[0]]:entry[1]});
+                }
+
+            }
+        });
+
         this.handleClick=this.handleClick.bind(this);
     }
-    handleClick(e){
 
+    handleClick(e){
+        let baseProductUrl='#/store/product/';
+        window.location.hash=(baseProductUrl+this.state.id);
     }
     render(){
 
@@ -76,24 +95,38 @@ export class Item extends Component{
 export class StoreHome extends Component{
     constructor(props) {
         super(props);
+        let url_base='./#/store/type/';
         this.state={
             accordion:'',
             tabs:[
-                {label: 'Featured', icon: 'pi pi-fw pi-home'},
-                {label: 'Switches'},
-                {label: 'Wire'},
-                {label: 'Conduit'},
-                {label: 'Other'},
+                {label: 'Featured', icon: 'pi pi-fw pi-home',url:'./#/store/'},
+                {label: 'Switches',url:url_base+'switches'},
+                {label: 'Wire',url:url_base+'wire'},
+                {label: 'Conduit',url:url_base+'conduit'},
+                {label: 'Other', url:url_base+'other'},
 
 
             ],
-            product_items:[1,2,3],
-            activeTab:1,
+            product_items:[1],
+            activeTab:0,
             itemAlignment:'p-col-12 p-md-6 p-lg-3',
         };
+        if(this.props.match.params['type']){
+
+            for (let tab in this.state.tabs) {
+                if(this.state.tabs[tab].label.toLowerCase()===this.props.match.params['type'].toLowerCase()){
+                    this.state.activeTab=this.state.tabs[tab]
+                    break;
+                }
+            }
+            if(this.state.activeTab===0){
+                console.log('Change Address');
+            }
+
+        }
+        //get items by category
 
     }
-
     render() {
 
         return (
@@ -133,8 +166,10 @@ export class Store extends Component{
                 <Route exact path="/store/product/:id" component={ProductPage}/>
                 <Route exact path="/store/wishlists/" component={CustomerWishlist}/>
                 <Route exact path={"/store/cart/"} component={CartPage}/>
-                <Route exact path="/store/quotes/" component={CustomerQuote}/>
-                <Route path="/store/type/:type" component={StoreHome}/>
+                <Route exact path="/store/quotes/" component={CustomerQuoteList}/>
+                <Route exact path="/store/quotes/:unid" component={CustomerQuote}/>
+                <Route exact path="/store/type/:type" component={StoreHome}/>
+                <Route exact path="/store/type/" component={StoreHome}/>
             </div>
 
         );

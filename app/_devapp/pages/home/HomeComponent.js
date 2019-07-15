@@ -44,7 +44,7 @@ export class HomeComponent extends Component{
         return(
           <div className={'home'}>
               <div className="p-grid p-fluid">
-                  <Menubar className={"homeMenu p-col-12"} model={this.homeMenu}/>
+                  {/* <Menubar className={"homeMenu p-col-12"} model={this.homeMenu}/>*/}
                   <div className="p-col-12">
                       <PictureCarousel itemCount={4} items={this.header_carousel_items}/>
                   </div>
