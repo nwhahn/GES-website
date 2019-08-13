@@ -1,0 +1,17 @@
+@import "../variables/GES_default";
+
+.p-editor-container{
+  height:70%;
+}
+.CompanyAddress{
+  span{
+    font-weight: bold;
+  }
+  font-size:16px;
+  color:$text-color-alt;
+  text-align: center;
+}
+.NewCompanyAddress{
+
+  outline: 2px $primary-color solid;
+}

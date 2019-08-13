@@ -5,16 +5,19 @@ import classNames from 'classnames';
 require('jquery');
 
 //Global Components - react
-import {Menu} from 'primereact/menu'
-import {Button} from 'primereact/button'
+
+import {Button} from 'primereact/button';
+import {Menu} from 'primereact/menu';
 import { render } from 'react-dom';
 import {Growl} from 'primereact/growl';
 import {BreadCrumb} from 'primereact/breadcrumb';
-import {Menubar} from "primereact/menubar";
+
+import {InputText} from "primereact/inputtext";
 
 //Global Components - user defined
 import { Login } from './login';
 import {SidebarMenu} from './sidebar';
+import {HomeMenu} from './HomeMenu'
 
 
 //Pages
@@ -26,9 +29,8 @@ import {About} from './pages/about/about'
 import {searchResults} from './pages/search/searchResults'
 //import { asyncComponent } from 'react-async-component';
 
-/** We are importing our index.php my app Vairaible */
-import myApp from 'myApp';
-import {InputText} from "primereact/inputtext";
+
+
 
 /* globals __webpack_public_path__ */
 __webpack_public_path__ = `${window.STATIC_URL}/app/assets/bundle/`;
@@ -45,14 +47,7 @@ class Myapp extends Component{
             loginScreen:false,
             loggedIn:true,
             search:''
-        }
-        this.initialState={
-            mobileMenuActive:false,
-            sidebarActive:false,
-            contentPage:'main',
-            loginScreen:false,
-            loggedIn:true,
-        }
+        };
         document.addEventListener("mousedown", this.handleClick,false)
         this.onMenuButtonClick=this.onMenuButtonClick.bind(this);
         this.onMenuButtonKeyDown = this.onMenuButtonKeyDown.bind(this);
@@ -65,38 +60,7 @@ class Myapp extends Component{
         this.onSearchBtnClick=this.onSearchBtnClick.bind(this);
         this.getNavItems=this.getNavItems.bind(this);
 
-        this.homeMenu=[
-            {
-                label:'Home',
-                icon:'pi pi-fw pi-home', url:'./'
-            },
-            {
-                label:'Lamp Repair'
-            },
-            {
-                label:'Materials Counter'
-            },
-            {
-                label:'Lighting Department'
-            },
-            {label:'About Us',icon:'pi pi-fw pi-info',url:'./#/about'},
-            {label:'Contact',icon:'pi pi-fw pi-user',url:'./#/contact/'},
-            {
-                label:'Store',
-                icon:'pi pi-fw pi-shopping-cart',
-                items:[
-                    {label:'Store Home',icon:'pi pi-fw pi-external-link', url:'./#/store/'},
-                    {label:'Switches',icon:'pi pi-fw pi-angle-right', url:'./#/store/type/switches'},
-                    {label:'Wire',icon:'pi pi-fw pi-angle-right', url:'./#/store/type/wire'},
-                    {label:'Conduit',icon:'pi pi-fw pi-angle-right', url:'./#/store/type/conduit'},
-                    {label:'Outlets',icon:'pi pi-fw pi-angle-right', url:'./#/store/type/outlets'},
-                ]
-            }
-
-
-
-        ]
-        console.log(window.location.hash);
+        //console.log(window.location.hash);
 
     }
     onMenuButtonClick(){
@@ -223,7 +187,6 @@ class Myapp extends Component{
         let login_button= <a ref={el => this.loginButton = el} onClick={this.onLoginButtonClick} onKeyDown={this.onLoginButtonKeyDown}>
                             Login
                         </a>;
-        let layout_content;
         let sidebarMenu=<SidebarMenu id='layout-sidebar' visible={this.state.sidebarActive} loggedIn={this.state.loggedIn} hide={this.hideSidebar.bind(this)} logOut={this.logOut.bind(this)} login={this.onLoginButtonClick.bind(this)}/>;
         let account_field;
         if(this.state.loggedIn) {
@@ -249,7 +212,7 @@ class Myapp extends Component{
 
         const home={icon:'pi pi-home',url:'./'}
         let navmenu_store=<BreadCrumb id={'nav-menu'} model={this.getNavItems()} home={home}/>;
-        let navmenu_home=<Menubar className={"homeMenu p-col-12"} model={this.homeMenu}/>;
+        let navmenu_home=<HomeMenu/>;
         return(
             <div className="layout-wrapper">
                 <div className="layout-header">

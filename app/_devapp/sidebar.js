@@ -13,7 +13,7 @@ export class SidebarMenu extends Component{
             search:'',
             current:0
         }
-        this.onSearchBtnClick=this.onSearchBtnClick.bind(this);
+                this.onSearchBtnClick=this.onSearchBtnClick.bind(this);
     }
     onSearchBtnClick(){
         let location='#/search/'+this.state.search.toString();

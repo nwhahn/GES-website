@@ -1,0 +1,24 @@
+@import "variables/GES_default";
+
+.new-icon{
+  background:$primary-color;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  text-align: center;
+  transform: rotate(20deg);
+}
+.new-icon:before {
+  content:"NEW!";
+  font-weight: bold;
+  font-size:10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background: $primary-color;
+  transform: rotate(315deg);
+  z-index:1;
+}

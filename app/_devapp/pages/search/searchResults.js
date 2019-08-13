@@ -13,7 +13,8 @@ export class searchResults extends Component{
         super(props);
         this.state={
             search:this.props.match.params['search'],
-            first:0,rows:10
+            results:5,
+            first:0,rows:5
         };
         this.onSearchBtnClick=this.onSearchBtnClick.bind(this)
     }
@@ -49,10 +50,11 @@ export class searchResults extends Component{
 
 
                         <div className="resultNav p-col-12">
-                            <Paginator first={this.state.first} rows={this.state.rows} totalRecords={60} rowsPerPageOptions={[5,10,25,50]} onPageChange={(e) => this.setState({first: e.first})}>
+                            <Paginator first={this.state.first} rows={this.state.rows} totalRecords={this.state.results} rowsPerPageOptions={[5,10,25,50]} onPageChange={(e) => this.setState({first: e.first,rows:e.rows})}>
 
                             </Paginator>
                         </div>
+
 
 
                     </div>

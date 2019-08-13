@@ -1,0 +1,44 @@
+@import "../variables/GES_default";
+
+
+#LoginHeader {
+  img {
+    width: 200px;
+    height: auto;
+  }
+}
+.p-tabview{
+  .p-tabview-nav{
+    border-radius: 4px 4px 0 0;
+    padding: 10px;
+    background-image: -webkit-linear-gradient(left,$primary-color,$secondary-color)!important;
+    a{
+      background-color:transparent!important;
+      color:$text-color-alt;
+      border-color:$text-color;
+    }
+    .p-highlight a{
+      background-color:$text-color-alt!important;
+      color:$text-color!important;
+    }
+
+  }
+
+}
+
+#LoginSubmit {
+
+  // margin-top: 60px;
+}
+
+.LoginField {
+
+  margin: 20px auto;
+
+
+  h1 {
+    color: $text-color;
+  }
+
+
+}
