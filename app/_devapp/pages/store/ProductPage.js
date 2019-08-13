@@ -143,9 +143,13 @@ export class ProductPage extends Component{
         return(
             <div className={"product"}>
                 <div className={"p-grid p-fluid"}>
-                    <div className={"product-img-box p-col-12 p-align-center p-justify-center"}>
+                    <div className={"product-img-box p-col-10 p-col-offset-1 p-align-center p-justify-center"}>
                         <img src="./app/assets/img/sampleproduct.jpg"/>
                     </div>
+                    <div className={"p-col-1"}>
+
+
+
                     <div className={"pricing p-col-6 p-md-4 p-col-offset-6 p-md-offset-4"}>
                         <Rating value={this.state.rating} onChange={(e) => this.setState({rating: e.value})} stars={5} cancel={false} />
                         <div className={"price"}>

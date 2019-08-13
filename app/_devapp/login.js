@@ -86,7 +86,7 @@ export class Login extends Component{
         }
         let this_obj=this;
         $.ajax({
-            url: './ajax_php/ajax_user.php',
+            url: './API/ajax_user.php',
             type: "POST",
             data:request,
             success : function(data)
@@ -125,7 +125,7 @@ export class Login extends Component{
             //console.log(this.state.email_checked);
             if(!this.state.email_checked){
                 $.ajax({
-                    url: './ajax_php/ajax_user.php',
+                    url: './API/ajax_user.php',
                     type: "GET",
                     data:{email:this.state.email},
                     success: function(data) {

@@ -21,7 +21,8 @@ $title='Website';
             <link rel="stylesheet" href="./app/node_modules/font-awesome/scss/font-awesome.css" type="text/css">
         </head>
         <script type="text/javascript">
-            var STATIC_URL = 'http://localhost/website/';
+            var STATIC_URL = 'http://localhost/GES/';
+            var API_PATH =STATIC_URL+'API/';
             var myApp = {
                 user : <?php echo json_encode($user); ?>,
             };

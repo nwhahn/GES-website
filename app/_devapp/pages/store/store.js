@@ -37,7 +37,7 @@ export class Item extends Component{
         };
         let this_obj=this;
         this.allowed_fields=['name','mfq','desc','img','rating','SKU','new'];
-        jQuery.post("./ajax_php/get_item_data.php",{id:this.state.id}).done(function(data){
+        jQuery.post("./API/get_item_data.php",{id:this.state.id}).done(function(data){
 
             let entries = Object.entries(JSON.parse(data));
             for (const entry of entries){

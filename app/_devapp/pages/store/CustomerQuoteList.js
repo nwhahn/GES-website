@@ -43,7 +43,6 @@ export class CustomerQuoteList extends Component{
                     </div>
                 </div>
                 <div className="section-content">
-                    <a href={"./#/store/quotes/1"}>Quote 1</a>
                     <DataView value={this.state.quotes} layout={this.state.layout} itemTemplate={this.itemTemplate}/>
 
                 </div>

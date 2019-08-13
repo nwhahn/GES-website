@@ -11,6 +11,10 @@ class userClass extends database
         'last_name'=>'',
         'phone'=>'',
         'account_type'=>'',
+        'quotes'=>'',
+        'wishlists'=>''
+
+
 
     );
     public function __construct()

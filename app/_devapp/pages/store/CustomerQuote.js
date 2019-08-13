@@ -26,6 +26,7 @@ export class CustomerQuote extends Component{
                     </div>
                 </div>
                 <div className="section-content">
+                    <a href={"./#/store/quotes/1"}>Quote 1</a>
                     {this.state.valid_id ? 'Customer Quote' :'Invalid'}
 
                 </div>
