@@ -21,43 +21,46 @@ export class Contact extends Component{
     }
     render(){
         return(
-            <div className={'contact'}>
-                <div className={"Test"}>AAAA</div>
+            <div id='contactSection' className={'contact'}>
                 <div className="section">
                     <div className="section-header">
-                        <h3 className="section-header-title">Contact Us</h3>
+                        <h3 className="section-header-title">Contact</h3>
                         <div className="section-header-border">
                             <div className="section-header-inner-border"/>
                         </div>
                     </div>
                     <div className="section-content p-grid p-justify-center">
-                        <div className={"p-col"}><Button className="p-button-raised p-button-rounded p-button-success" icon="fa fa-phone" onClick={this.callPhone}/><a href="tel:315-488-3161"> 315-488-3161</a></div>
-                        <div className={"p-col"}><Button className="p-button-raised p-button-rounded p-button-success" icon="fa fa-fax"/><a> +315-488-3161</a></div>
-                    </div>
-                    <div className="section-header">
-                        <h3 className="section-header-title">Location</h3>
-                        <div className="section-header-border">
-                            <div className="section-header-inner-border"/>
-                        </div>
-                    </div>
-                    <div className="section-content p-grid p-justify-center">
-                        <div className="CompanyAddress p-col-4">
-                            <span>511 Charles Ave</span>
-                            <div>Solvay, NY 13209</div>
-                        </div>
-                        <div className="CompanyAddress NewCompanyAddress p-col-4">
-                            <span>110 Luther Ave </span>
-                            <div className={"new-icon"}/>
-                            <div>Liverpool, NY 13088</div>
+
+
+                        <div className={"p-col"}>
+                            <div className="section">
+                                <div className="section-header">
+                                    <h3 className="section-header-title">Office</h3>
+                                </div>
+                                <div className="CompanyAddress p-col-4">
+                                    <span>110 Luther Ave </span>
+                                    <div className={"new-icon"}/>
+                                    <div>Liverpool, NY 13088</div>
+
+                                </div>
+                                <div className="section-header">
+                                    <h3 className="section-header-title">Inquiries</h3>
+                                </div>
+                                <div className={"p-col"}><Button className="p-button-raised p-button-rounded p-button-success" icon="fa fa-phone" onClick={this.callPhone}/><a href="tel:315-488-3161"> 315-488-3161</a></div>
+                                <div className={"p-col"}><Button className="p-button-raised p-button-rounded p-button-success" icon="fa fa-fax"/><a> +315-488-3161</a></div>
+                            </div>
 
                         </div>
-                        <div className="CompanyAddress p-col-4">
-                            <span>New York City Location</span>
-                            <div>Somewhere in NYC</div>
+                        <div className={"p-col"}>
+                            <ContactForm/>
                         </div>
+
+
+
                     </div>
+
                 </div>
-                <ContactForm/>
+
 
             </div>
 

@@ -61,30 +61,28 @@ export class About extends Component{
     render(){
         return(
             <div className={'contact p-grid p-fluid'}>
-                <div className="section p-col-12 p-lg-6 p-sm-12">
+                <div className="section">
                     <div className="section-header">
                         <h3 className="section-header-title">Welcome to Generation Electrical Supply and Lighting</h3>
                         <div className="section-header-border">
                             <div className="section-header-inner-border"/>
                         </div>
                     </div>
-                    <div className="section-content">
-                        <div className={"p-grid p-fluid p-justify-center"}>
-                            {this.state.introText.split('\n').map(function (value) {
-                                return <div className={"paragraph"}>
-                                    {value}
-                                </div>
-                            })}
+                    <div className="section-content p-grid p-fluid">
+                        <div className={"p-col-12"}>
+                            <div className={"p-justify-center"}>
+                                {this.state.introText.split('\n').map(function (value) {
+                                    return <div className={"paragraph"}>
+                                        {value}
+                                    </div>
+                                })}
 
 
 
 
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div className="section Certifications p-col-12 p-lg-6 p-sm-12">
-                    <div className={"section p-grid p-justify-center"}>
-                        <div className={"section-content"}>
+                        <div className={"p-lg-6"}>
                             <div className={"paragraphHeader"}>Generation Electrical Supply & Lighting is MWBE Certified.</div>
                             <a className={"./#/certifications"}>Learn More...</a>
                             <div className={"certificationImages p-grid"}>
@@ -97,14 +95,18 @@ export class About extends Component{
                                 </div>
 
                             </div>
-
                         </div>
+                        <div className={"p-lg-6"}>
+                            <OrganizationChart value={this.state.organizationData} nodeTemplate={this.nodeTemplate} selection={this.state.selection} selectionMode="multiple"
+                                               onSelectionChange={event => this.setState({selection: event.data})} className="company"/>
+                        </div>
+
+
+
                     </div>
                 </div>
-                <div className={"p-col-12 p-lg-6 p-sm-12"}>
-                    <OrganizationChart value={this.state.organizationData} nodeTemplate={this.nodeTemplate} selection={this.state.selection} selectionMode="multiple"
-                                       onSelectionChange={event => this.setState({selection: event.data})} className="company"/>
-                </div>
+
+
             </div>
         );
     }

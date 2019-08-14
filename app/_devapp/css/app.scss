@@ -2,9 +2,9 @@
 @import "custom_icons";
 
 
-body{
+html, body{
   background-color:$background-color;
-
+  height:100%;
 
 }
 .homeMenu{
@@ -174,6 +174,7 @@ body{
   width: 100%;
   z-index: 999;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  background-color: $background-color;
   #HeaderImg{
     width:auto!important;
     height: $header-height;
@@ -206,55 +207,114 @@ body{
     }
   }
   .header-menu{
-    li{
-      display:inline-block;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    height:$header-height;
+    .header-menu-options{
+      right:0;
+      float:right;
+      list-style: none;
+      height:$topbar-height;
+      margin:0;
+      li{
+
+        display: inline;
+      }
+      .search-icon,.search-bar{
+
+
+        height: $topbar-height;
+        .search-field{
+          padding:5px;
+          height:inherit;
+          input{
+            width:400px;
+          }
+
+          margin:5px auto;
+          align-content: center;
+        }
+      }
+      .search-icon{
+        span{
+          margin-right:$topbar-height/2;
+          height:100%!important;
+        }
+        width:$topbar-height;
+        height:$topbar-height;
+
+        :hover{
+          color:$secondary-color;
+        }
+      }
+      .search-bar{
+        display:none;
+      }
+      .active{
+        display:inline-block!important;
+        -webkit-transition: all .6s linear;
+        -moz-transition: all .6s linear;
+        -o-transition: all .6s linear;
+        transition: all .6s linear;
+      }
+      .account-button{
+        width:$topbar-height;
+        li{
+          // float:left!important;
+
+        }
+        height: 100%;
+        .p-button{
+          width:$topbar-height;
+          height:$topbar-height;
+          background-color:darken($primary-color,7%);
+        }
+        :hover{
+          color:$secondary-color;
+        }
+      }
     }
-  }
-  .search-icon,.search-bar{
-    display:inline-block;
-    height: 100%;
-    .search-field{
-      padding:5px;
-      height:inherit;
-      input{
-        width:400px;
+    .headerNav{
+      margin-top:$topbar-height;
+      height:$header-height - $topbar-height;
+      list-style: none;
+      padding: 10px 0;
+
+      li{
+        height:inherit;
+        padding:10px;
+        border-bottom:3px solid $secondary-color;
+        text-align: center;
+        display:inline;
+
+        a{
+          color:$secondary-color;
+          font-size:16px;
+          font-weight: bold;
+
+
+        }
+
+      }
+      :hover{
+        border-bottom-color: $primary-color;
+        a{
+          color:$primary-color;
+        }
       }
 
-      margin:5px auto;
-      align-content: center;
+
     }
+
+
+
+
+
+
   }
-  .search-icon{
-    width:$topbar-height;
-    :hover{
-      color:$secondary-color;
-    }
-  }
-  .search-bar{
-    display:none;
-  }
-  .active{
-    display:inline-block!important;
-    -webkit-transition: all .6s linear;
-    -moz-transition: all .6s linear;
-    -o-transition: all .6s linear;
-    transition: all .6s linear;
-  }
-  .account-button{
-    li{
-     // float:left!important;
-      width:100%;
-    }
-    height: 100%;
-    .p-button{
-      width:$topbar-height;
-      height:$topbar-height;
-      background-color:darken($primary-color,7%);
-    }
-    :hover{
-      color:$secondary-color;
-    }
-  }
+
 
 
 
@@ -423,12 +483,20 @@ body{
 
  */
 #layout-content{
+  position:absolute;
+  margin-top:$header-height!important;
+  width:100%;
 
-  .home{
-    margin-top:$header-height;
-    padding-top: 5px;
+  .parallax{
+    background-image: url("../../assets/img/GES_Glossy.png");
+
+    height: 1000px;
+    width:100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-
   .form-fieldset{
     padding:30px;
     .AccountField{
@@ -553,9 +621,7 @@ body{
 .p-menu-item{
   width:100%;
 }
-#app{
-  position:relative;
-}
+
 .LoginForm {
   @import "pages/loginForm";
   padding: 5px;
@@ -587,14 +653,16 @@ body{
 .submitPage{
   right:0;
 }
-@media screen and (max-width: 64em) {
+@media screen and (max-width: 1140px) {
+
   //$topbar-height-mobile:30px;
   .layout-header{
+    height:$topbar-height;
     text-align: center;
     #HeaderImg{
 
       img{
-        height:inherit;
+        height:$topbar-height!important;
         width:auto;
       }
     }
@@ -612,7 +680,7 @@ body{
 
   }
   #layout-content{
-    padding-top:50px;
+    margin-top:$topbar-height!important;
     //padding-top:$topbar-height-mobile;
     .p-sidebar-close{
       font-size:24px;
@@ -654,5 +722,16 @@ body{
   }
 }
 
-
+footer{
+  img{
+    height:40px;
+    width:auto;
+    opacity: 0.5;
+    filter:grayscale(50%);
+  }
+  color:grey;
+  text-align:center;
+  font-size:10px;
+  background:linear-gradient($background-color,$secondary-color);
+}
 

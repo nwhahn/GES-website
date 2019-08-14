@@ -36,7 +36,6 @@ import {searchResults} from './pages/search/searchResults'
 __webpack_public_path__ = `${window.STATIC_URL}/app/assets/bundle/`;
 
 
-
 class Myapp extends Component{
     constructor(props) {
         super(props);
@@ -221,27 +220,31 @@ class Myapp extends Component{
                     </span>
                     <div id='HeaderImg'>
                         <Link to="/">
-                            <img alt="logo" src="./app/assets/img/geswide.png" />
+                            <img alt="logo" src={`${window.IMG_PATH}/GES_Main_Header.svg`} />
                         </Link>
                     </div>
-                    <ul className="header-menu p-unselectable-text">
-                        <li ref={el => this.searchBarDiv = el} className={'search-bar'}>
-                            <div className={'search-field'}>
+                    <div className={"header-menu"}>
+                        <ul className="header-menu-options p-unselectable-text">
+                            <li ref={el => this.searchBarDiv = el} className={'search-bar'}>
+                                <div className={'search-field'}>
 
-                                <InputText id={'search-input'} placeholder={'Search'}  value={this.state.search} onChange={(e) => this.setState({search:e.target.value})}/>
+                                    <InputText id={'search-input'} placeholder={'Search'}  value={this.state.search} onChange={(e) => this.setState({search:e.target.value})}/>
 
-                            </div>
-                        </li>
-                        <li className={'search-icon'}>
+                                </div>
+                            </li>
+                            <li className={'search-icon'}>
                             <span ref={el => this.searchButton = el}>
                                 <i className="pi pi-search" onClick={this.onSearchBtnClick}/>
                             </span>
-                        </li>
+                            </li>
 
-                        {account_field}
+                            {account_field}
 
-                    </ul>
-                    {window.location.hash.startsWith('#/store') ? navmenu_store: navmenu_home}
+                        </ul>
+                        {window.location.hash.startsWith('#/store') ? navmenu_store: navmenu_home}
+
+                    </div>
+
                 </div>
 
 
@@ -256,11 +259,15 @@ class Myapp extends Component{
                     <Route path={"/about"} component={About}/>
                     <Route path={"/search/:search"} component={searchResults}/>
                     {sidebarMenu}
+                    <footer>
+                        <img src={`${window.IMG_PATH}/geswide.png`}/>
+                        <div>© Copyright - 2019 Generation Electrical Supply & Lighting </div>
+
+                    </footer>
                 </div>
                 {loginPage}
-
-
             </div>
+
         );
     }
 }

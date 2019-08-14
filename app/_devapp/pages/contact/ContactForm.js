@@ -46,10 +46,7 @@ export class ContactForm extends Component{
         return(
             <div className="section">
                 <div className="section-header">
-                    <h3 className="section-header-title">Send Mail</h3>
-                    <div className="section-header-border">
-                        <div className="section-header-inner-border"/>
-                    </div>
+                    <h3 className="section-header-title">Send A Message</h3>
                 </div>
                 <div className="section-content p-grid p-fluid">
                     <div id='ContactSubject' className='SubjectField p-float-label p-col-6'>
@@ -63,10 +60,11 @@ export class ContactForm extends Component{
                     </div>:null }
 
                     <Editor className='p-col-12' style={{height:'320px'}} value={this.state.text} onTextChange={(e)=>this.setState({text:e.htmlValue})}/>
+                    <div className={'submitPage'}>
+                        <Button label="Send" disabled={this.state.subject==='' || this.state.text==='' || this.state.text===null } className="submitPageBtn p-button-success" icon="pi pi-chevron-right" iconPos="right" onClick={e => this.handleSend(e)}/>
+                    </div>
                 </div>
-                <div className={'submitPage'}>
-                    <Button label="Send" disabled={this.state.subject==='' || this.state.text==='' || this.state.text===null } className="submitPageBtn p-button-success" icon="pi pi-chevron-right" iconPos="right" onClick={e => this.handleSend(e)}/>
-                </div>
+
             </div>
 
         );

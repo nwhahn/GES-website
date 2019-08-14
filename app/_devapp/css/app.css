@@ -22,8 +22,9 @@
   z-index: 1;
 }
 
-body {
+html, body {
   background-color: #F6F8F9;
+  height: 100%;
 }
 
 .homeMenu {
@@ -169,6 +170,7 @@ body {
   width: 100%;
   z-index: 999;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  background-color: #F6F8F9;
 }
 .layout-header #HeaderImg {
   width: auto !important;
@@ -200,51 +202,90 @@ body {
   width: inherit;
   line-height: inherit;
 }
-.layout-header .header-menu li {
-  display: inline-block;
+.layout-header .header-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100px;
 }
-.layout-header .search-icon, .layout-header .search-bar {
-  display: inline-block;
-  height: 100%;
+.layout-header .header-menu .header-menu-options {
+  right: 0;
+  float: right;
+  list-style: none;
+  height: 60px;
+  margin: 0;
 }
-.layout-header .search-icon .search-field, .layout-header .search-bar .search-field {
+.layout-header .header-menu .header-menu-options li {
+  display: inline;
+}
+.layout-header .header-menu .header-menu-options .search-icon, .layout-header .header-menu .header-menu-options .search-bar {
+  height: 60px;
+}
+.layout-header .header-menu .header-menu-options .search-icon .search-field, .layout-header .header-menu .header-menu-options .search-bar .search-field {
   padding: 5px;
   height: inherit;
   margin: 5px auto;
   align-content: center;
 }
-.layout-header .search-icon .search-field input, .layout-header .search-bar .search-field input {
+.layout-header .header-menu .header-menu-options .search-icon .search-field input, .layout-header .header-menu .header-menu-options .search-bar .search-field input {
   width: 400px;
 }
-.layout-header .search-icon {
+.layout-header .header-menu .header-menu-options .search-icon {
   width: 60px;
+  height: 60px;
 }
-.layout-header .search-icon :hover {
+.layout-header .header-menu .header-menu-options .search-icon span {
+  margin-right: 30px;
+  height: 100% !important;
+}
+.layout-header .header-menu .header-menu-options .search-icon :hover {
   color: #7ade4b;
 }
-.layout-header .search-bar {
+.layout-header .header-menu .header-menu-options .search-bar {
   display: none;
 }
-.layout-header .active {
+.layout-header .header-menu .header-menu-options .active {
   display: inline-block !important;
   -webkit-transition: all 0.6s linear;
   -moz-transition: all 0.6s linear;
   -o-transition: all 0.6s linear;
   transition: all 0.6s linear;
 }
-.layout-header .account-button {
+.layout-header .header-menu .header-menu-options .account-button {
+  width: 60px;
   height: 100%;
 }
-.layout-header .account-button li {
-  width: 100%;
-}
-.layout-header .account-button .p-button {
+.layout-header .header-menu .header-menu-options .account-button .p-button {
   width: 60px;
   height: 60px;
   background-color: #378a0d;
 }
-.layout-header .account-button :hover {
+.layout-header .header-menu .header-menu-options .account-button :hover {
   color: #7ade4b;
+}
+.layout-header .header-menu .headerNav {
+  margin-top: 60px;
+  height: 40px;
+  list-style: none;
+  padding: 10px 0;
+}
+.layout-header .header-menu .headerNav li {
+  height: inherit;
+  padding: 10px;
+  border-bottom: 3px solid #7ade4b;
+  text-align: center;
+  display: inline;
+}
+.layout-header .header-menu .headerNav li a {
+  color: #7ade4b;
+  font-size: 16px;
+  font-weight: bold;
+}
+.layout-header .header-menu .headerNav :hover {
+  border-bottom-color: #44ab10;
+}
+.layout-header .header-menu .headerNav :hover a {
+  color: #44ab10;
 }
 
 /*.layout-header{
@@ -410,9 +451,19 @@ body {
 }
 
  */
-#layout-content .home {
-  margin-top: 100px;
-  padding-top: 5px;
+#layout-content {
+  position: absolute;
+  margin-top: 100px !important;
+  width: 100%;
+}
+#layout-content .parallax {
+  background-image: url("../../assets/img/GES_Glossy.png");
+  height: 1000px;
+  width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #layout-content .form-fieldset {
   padding: 30px;
@@ -518,10 +569,6 @@ body {
   width: 100%;
 }
 
-#app {
-  position: relative;
-}
-
 .LoginForm {
   padding: 5px;
   border-radius: 10px;
@@ -582,12 +629,13 @@ body {
   right: 0;
 }
 
-@media screen and (max-width: 64em) {
+@media screen and (max-width: 1140px) {
   .layout-header {
+    height: 60px;
     text-align: center;
   }
   .layout-header #HeaderImg img {
-    height: inherit;
+    height: 60px !important;
     width: auto;
   }
   .layout-header .header-menu {
@@ -599,7 +647,7 @@ body {
   }
 
   #layout-content {
-    padding-top: 50px;
+    margin-top: 60px !important;
   }
   #layout-content .p-sidebar-close {
     font-size: 24px;
@@ -634,6 +682,18 @@ body {
   .layout-header img {
     display: none;
   }
+}
+footer {
+  color: grey;
+  text-align: center;
+  font-size: 10px;
+  background: linear-gradient(#F6F8F9, #7ade4b);
+}
+footer img {
+  height: 40px;
+  width: auto;
+  opacity: 0.5;
+  filter: grayscale(50%);
 }
 
 /*# sourceMappingURL=app.css.map */
