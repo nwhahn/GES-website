@@ -146,7 +146,7 @@ export class ProductPage extends Component{
                     <div className={"product-img-box p-col-10 p-col-offset-1 p-align-center p-justify-center"}>
                         <img src="./app/assets/img/sampleproduct.jpg"/>
                     </div>
-                    <div className={"p-col-1"}>
+
 
 
 

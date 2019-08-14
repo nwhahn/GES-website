@@ -23,7 +23,7 @@
 }
 
 body {
-  background-color: #141414;
+  background-color: #F6F8F9;
 }
 
 .homeMenu {
@@ -31,7 +31,7 @@ body {
 }
 
 .paragraph {
-  color: #fff;
+  color: black;
 }
 
 .paragraphHeader {
@@ -41,7 +41,7 @@ body {
   font-weight: bold;
 }
 
-.p-menubar {
+.store .p-menubar {
   background-color: #7ade4b !important;
   border-color: #7ade4b !important;
 }
@@ -67,7 +67,7 @@ body {
 }
 .p-accordion .p-accordion-content .p-card {
   background-color: #7ade4b !important;
-  color: black;
+  color: #fff;
 }
 
 .pricing {
@@ -105,7 +105,7 @@ body {
   padding: 15px;
 }
 .section .section-content .description {
-  color: #545454;
+  color: white;
   font-size: 20px;
 }
 .section .section-content .product-options {
@@ -121,7 +121,7 @@ body {
   background-color: #44ab10 !important;
 }
 .section .section-content .resultNav .p-paginator, .section .section-content .resultNav .p-dropdown-panel, .section .section-content .resultNav .p-dropdown {
-  background-color: #545454;
+  background-color: white;
   border: none;
 }
 .section .section-content .resultNav .p-paginator .p-dropdown-item, .section .section-content .resultNav .p-paginator .p-paginator-page, .section .section-content .resultNav .p-dropdown-panel .p-dropdown-item, .section .section-content .resultNav .p-dropdown-panel .p-paginator-page, .section .section-content .resultNav .p-dropdown .p-dropdown-item, .section .section-content .resultNav .p-dropdown .p-paginator-page {
@@ -131,7 +131,7 @@ body {
   color: #44ab10;
 }
 .section .section-content .resultNav .p-dropdown-trigger, .section .section-content .resultNav .p-dropdown-label {
-  background-color: #545454;
+  background-color: white;
   color: #7ade4b;
 }
 .section .section-content .certificationImages {
@@ -151,21 +151,19 @@ body {
   border: 2px solid #44ab10;
   border-radius: 5px;
   padding: 20px;
-  background-color: #545454;
+  background-color: white;
 }
 #store .storeItem img {
-  box-shadow: 5px 5px #141414;
+  box-shadow: 5px 5px #F6F8F9;
 }
 #store .storeItem:hover {
   transform: scale(1.1);
 }
 
 .layout-header {
-  background-color: #44ab10;
-  display: block;
-  padding: 0;
-  height: 60px;
+  height: 100px;
   position: fixed;
+  display: inline-block;
   top: 0;
   left: 0;
   width: 100%;
@@ -173,9 +171,8 @@ body {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
 }
 .layout-header #HeaderImg {
-  display: inline-block;
-  height: 60px;
-  line-height: 60px;
+  width: auto !important;
+  height: 100px;
 }
 .layout-header #HeaderImg a {
   height: inherit;
@@ -186,7 +183,7 @@ body {
 }
 .layout-header .menu-button {
   display: none;
-  color: #fff;
+  color: #141414;
   font-size: 24px;
   height: 60px;
   width: 60px;
@@ -203,95 +200,218 @@ body {
   width: inherit;
   line-height: inherit;
 }
-.layout-header .header-menu {
-  list-style-type: none;
-  float: right;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
 .layout-header .header-menu li {
   display: inline-block;
-  height: 100%;
-  float: right;
 }
-.layout-header .header-menu .menu-highlight span, .layout-header .header-menu .menu-highlight a {
-  text-decoration: none;
-  color: #fff;
-  min-width: 120px;
+.layout-header .search-icon, .layout-header .search-bar {
   display: inline-block;
-  text-align: center;
-  height: 100%;
-  line-height: 60px;
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s;
-}
-.layout-header .header-menu .menu-highlight :hover, .layout-header .header-menu .menu-highlight :focus {
-  background-color: #7ade4b !important;
-}
-.layout-header .header-menu .account-button :hover {
-  color: #7ade4b;
-}
-.layout-header .header-menu .search-icon, .layout-header .header-menu .search-bar {
-  display: inline-block;
-  float: left;
   height: 100%;
 }
-.layout-header .header-menu .search-icon .search-input, .layout-header .header-menu .search-bar .search-input {
-  float: left;
-}
-.layout-header .header-menu .search-icon span, .layout-header .header-menu .search-bar span {
-  margin: 0;
-  width: inherit;
-  height: inherit;
-  text-decoration: none;
-  color: black;
-  text-align: center;
-  line-height: 60px;
-}
-.layout-header .header-menu .search-icon span :hover, .layout-header .header-menu .search-bar span :hover {
-  color: #fff;
-}
-.layout-header .header-menu .search-icon .search-field, .layout-header .header-menu .search-bar .search-field {
+.layout-header .search-icon .search-field, .layout-header .search-bar .search-field {
   padding: 5px;
   height: inherit;
   margin: 5px auto;
   align-content: center;
 }
-.layout-header .header-menu .search-icon .search-field input, .layout-header .header-menu .search-bar .search-field input {
+.layout-header .search-icon .search-field input, .layout-header .search-bar .search-field input {
   width: 400px;
 }
-.layout-header .header-menu .search-bar {
+.layout-header .search-icon {
+  width: 60px;
+}
+.layout-header .search-icon :hover {
+  color: #7ade4b;
+}
+.layout-header .search-bar {
   display: none;
 }
-.layout-header .header-menu .active {
+.layout-header .active {
   display: inline-block !important;
   -webkit-transition: all 0.6s linear;
   -moz-transition: all 0.6s linear;
   -o-transition: all 0.6s linear;
   transition: all 0.6s linear;
 }
-.layout-header .header-menu .search-icon {
-  width: 60px;
-}
-.layout-header .header-menu .menu-highlight {
-  background-color: #378a0d;
-}
-.layout-header .header-menu .account-button {
+.layout-header .account-button {
   height: 100%;
 }
-.layout-header .header-menu .account-button li {
-  float: left !important;
+.layout-header .account-button li {
   width: 100%;
 }
-.layout-header .header-menu .account-button .p-button {
+.layout-header .account-button .p-button {
   width: 60px;
   height: 60px;
   background-color: #378a0d;
 }
+.layout-header .account-button :hover {
+  color: #7ade4b;
+}
 
+/*.layout-header{
+
+
+  background-color:$primary-color;
+  display:block;
+  padding:0;
+  height:$topbar-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  #HeaderImg{
+      display: inline-block;
+      height:$topbar-height;
+
+      line-height:$topbar-height;
+      a{
+        height:inherit;
+        img{
+          padding:5px;
+          height:inherit;
+        }
+      }
+
+  }
+  .menu-button{
+    display:none;
+    color: $background-color-alt;
+    font-size: 24px;
+    height:$topbar-height;
+    width:$topbar-height;
+    line-height:$topbar-height;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+    :hover{
+      background-color: $secondary-color;
+    }
+    i{
+      width:inherit;
+      line-height:inherit;
+    }
+  }
+  .header-menu{
+    list-style-type: none;
+    float: right;
+    margin:0;
+    padding: 0;
+    height: 100%;
+    li{
+      display: inline-block;
+      height: 100%;
+      float:right;
+
+
+    }
+    .menu-highlight{
+      span, a{
+        text-decoration: none;
+        color: $background-color-alt;
+        min-width: 120px;
+        display: inline-block;
+        text-align: center;
+        height: 100%;
+        line-height: $topbar-height;
+        -webkit-transition: background-color 0.2s;
+        transition: background-color 0.2s;
+
+      }
+      :hover,:focus{
+        background-color:$secondary-color!important;
+      }
+
+
+    }
+    .account-button{
+      :hover{
+        color:$secondary-color;
+      }
+    }
+    .search-icon,.search-bar{
+      display:inline-block;
+      float:left;
+      height: 100%;
+
+      .search-input{
+        float:left;
+      }
+
+      span{
+        margin:0;
+        width:inherit;
+        height:inherit;
+        text-decoration: none;
+        color: $text-color;
+        text-align:center;
+        line-height: $topbar-height;
+        :hover{
+          color:$background-color-alt;
+        }
+
+      }
+      .search-field{
+        padding:5px;
+        height:inherit;
+        input{
+          width:400px;
+        }
+
+        margin:5px auto;
+        align-content: center;
+      }
+
+
+
+    }
+    .search-bar{
+      display:none;
+    }
+    .active{
+      display:inline-block!important;
+      -webkit-transition: all .6s linear;
+      -moz-transition: all .6s linear;
+      -o-transition: all .6s linear;
+      transition: all .6s linear;
+    }
+
+    .search-icon{
+      width:$topbar-height;
+    }
+    .menu-highlight{
+      background-color:darken($primary-color,7%);
+    }
+    .account-button{
+     li{
+       float:left!important;
+       width:100%;
+     }
+      height: 100%;
+      .p-menu{
+        .p-menu-item{
+
+        }
+      }
+      .p-button{
+          width:$topbar-height;
+          height:$topbar-height;
+          background-color:darken($primary-color,7%);
+
+
+
+      }
+
+    }
+
+  }
+
+}
+
+ */
 #layout-content .home {
-  margin-top: 60px;
+  margin-top: 100px;
   padding-top: 5px;
 }
 #layout-content .form-fieldset {
@@ -335,7 +455,7 @@ body {
   opacity: 0.8;
 }
 #layout-content .pictureCarousel .traverseBtn {
-  color: #545454;
+  color: white;
   opacity: 0.5;
 }
 #layout-content .pictureCarousel .traverseBtn .active {
@@ -380,10 +500,10 @@ body {
 }
 
 .cancel-btn {
-  background-color: #141414 !important;
+  background-color: #F6F8F9 !important;
 }
 .cancel-btn :hover {
-  background-color: #545454;
+  background-color: white;
 }
 
 .submit-btn {
@@ -407,7 +527,7 @@ body {
   border-radius: 10px;
   width: 400px;
   border: 2px solid #44ab10;
-  background-color: #fff;
+  background-color: #141414;
 }
 .LoginForm #LoginHeader img {
   width: 200px;
@@ -420,18 +540,18 @@ body {
 }
 .LoginForm .p-tabview .p-tabview-nav a {
   background-color: transparent !important;
-  color: #fff;
-  border-color: black;
+  color: black;
+  border-color: #fff;
 }
 .LoginForm .p-tabview .p-tabview-nav .p-highlight a {
-  background-color: #fff !important;
-  color: black !important;
+  background-color: black !important;
+  color: #fff !important;
 }
 .LoginForm .LoginField {
   margin: 20px auto;
 }
 .LoginForm .LoginField h1 {
-  color: black;
+  color: #fff;
 }
 
 .contact .p-editor-container {
@@ -439,7 +559,6 @@ body {
 }
 .contact .CompanyAddress {
   font-size: 16px;
-  color: #fff;
   text-align: center;
 }
 .contact .CompanyAddress span {

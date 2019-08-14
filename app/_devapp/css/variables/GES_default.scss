@@ -3,14 +3,31 @@
 
 $primary-color:#44ab10;
 $secondary-color:#7ade4b;
-$background-color:#141414;
+$background-color:#F6F8F9;
 $background-color-light:lighten($background-color,25%);
-$background-color-alt:#fff;
-$text-color:black;
-$text-color-alt:#fff;
+$background-color-alt:#141414;
+$text-color:#fff;
+$text-color-alt:black;
 
+.darkMode{
+  $primary-color:#44ab10;
+  $secondary-color:#7ade4b;
+  $background-color:#141414;
+  $background-color-light:lighten($background-color,25%);
+  $background-color-alt:#fff;
+  $text-color:black;
+  $text-color-alt:#fff;
+}
 
 //alignment
 $topbar-height:60px;
+$header-height:100px;
 $menubar-height:30px;
+
+
+
+//sidebar
 $content-offset:$topbar-height;
+
+
+

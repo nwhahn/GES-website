@@ -224,7 +224,6 @@ class Myapp extends Component{
                             <img alt="logo" src="./app/assets/img/geswide.png" />
                         </Link>
                     </div>
-
                     <ul className="header-menu p-unselectable-text">
                         <li ref={el => this.searchBarDiv = el} className={'search-bar'}>
                             <div className={'search-field'}>
@@ -242,8 +241,9 @@ class Myapp extends Component{
                         {account_field}
 
                     </ul>
+                    {window.location.hash.startsWith('#/store') ? navmenu_store: navmenu_home}
                 </div>
-                {window.location.hash.startsWith('#/store') ? navmenu_store: navmenu_home}
+
 
                 <div id="layout-content" className="p-growl-container">
 
