@@ -40,7 +40,7 @@ export class searchResults extends Component{
                             <InputText className={'search-input'} placeholder={'Search'} value={this.state.search} onChange={(e) => this.setState({search:e.target.value})}/>
                             <Button icon="pi pi-search" className="p-button-success" onClick={this.onSearchBtnClick}/>
                         </div>
-                        <h3 className="section-header-title">Search Results</h3>
+                        <h3 className="section-title">Search Results</h3>
 
                         <div className="section-header-border">
                             <div className="section-header-inner-border"/>

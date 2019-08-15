@@ -35,7 +35,7 @@ export class Contact extends Component{
                         <div className={"p-col"}>
                             <div className="section">
                                 <div className="section-header">
-                                    <h3 className="section-header-title">Office</h3>
+                                    <h3 className="section-title">Office</h3>
                                 </div>
                                 <div className="CompanyAddress p-col-4">
                                     <span>110 Luther Ave </span>
@@ -44,7 +44,7 @@ export class Contact extends Component{
 
                                 </div>
                                 <div className="section-header">
-                                    <h3 className="section-header-title">Inquiries</h3>
+                                    <h3 className="section-title">Inquiries</h3>
                                 </div>
                                 <div className={"p-col"}><Button className="p-button-raised p-button-rounded p-button-success" icon="fa fa-phone" onClick={this.callPhone}/><a href="tel:315-488-3161"> 315-488-3161</a></div>
                                 <div className={"p-col"}><Button className="p-button-raised p-button-rounded p-button-success" icon="fa fa-fax"/><a> +315-488-3161</a></div>

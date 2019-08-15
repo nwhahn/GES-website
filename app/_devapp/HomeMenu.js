@@ -51,11 +51,11 @@ export class HomeMenu extends Component{
     constructor(props){
         super(props);
 
-
+        console.log(window.location.hash);
         this.Menu=[
             {
                 label:'Home',
-                icon:'pi pi-fw pi-home', url:'./'
+                icon:'pi pi-fw pi-home', url:'./#/'
             },
             {
                 label:'Lamp Repair'
@@ -93,8 +93,8 @@ export class HomeMenu extends Component{
         return(
             <ul className={"headerNav"}>
                 {
-                    this.Menu.map((page)=>(
-                        <li className={"headerNav-link"}>
+                    this.Menu.map((page,index)=>(
+                        <li className={(('./'+window.location.hash)===page.url)?"headerNav-link active":"headerNav-link"} key={page.label}>
                             <a href={page.url}>{page.label}</a>
                         </li>
                     ))

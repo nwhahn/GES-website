@@ -42,11 +42,6 @@ html, body {
   font-weight: bold;
 }
 
-.store .p-menubar {
-  background-color: #7ade4b !important;
-  border-color: #7ade4b !important;
-}
-
 .p-rating-icon {
   color: #44ab10 !important;
 }
@@ -90,6 +85,11 @@ html, body {
   width: 100%;
 }
 .section .section-header .section-header-title {
+  color: #44ab10;
+  font-size: 36px;
+  text-align: center;
+}
+.section .section-header .section-title {
   color: #44ab10;
   font-size: 24px;
   display: inline-block;
@@ -202,6 +202,9 @@ html, body {
   width: inherit;
   line-height: inherit;
 }
+.layout-header .menu-button i a {
+  height: 100%;
+}
 .layout-header .header-menu {
   position: fixed;
   top: 0;
@@ -213,33 +216,65 @@ html, body {
   float: right;
   list-style: none;
   height: 60px;
+  padding: 15px;
   margin: 0;
 }
 .layout-header .header-menu .header-menu-options li {
   display: inline;
 }
-.layout-header .header-menu .header-menu-options .search-icon, .layout-header .header-menu .header-menu-options .search-bar {
+.layout-header .header-menu .header-menu-options .search-bar {
   height: 60px;
 }
-.layout-header .header-menu .header-menu-options .search-icon .search-field, .layout-header .header-menu .header-menu-options .search-bar .search-field {
+.layout-header .header-menu .header-menu-options .search-bar .search-field {
   padding: 5px;
   height: inherit;
   margin: 5px auto;
   align-content: center;
 }
-.layout-header .header-menu .header-menu-options .search-icon .search-field input, .layout-header .header-menu .header-menu-options .search-bar .search-field input {
+.layout-header .header-menu .header-menu-options .search-bar .search-field input {
   width: 400px;
 }
-.layout-header .header-menu .header-menu-options .search-icon {
-  width: 60px;
-  height: 60px;
+.layout-header .header-menu .header-menu-options .headerButton {
+  /*span{
+    margin-right:$topbar-height/2;
+    height:100%!important;
+  }
+  width:$topbar-height!important;*/
 }
-.layout-header .header-menu .header-menu-options .search-icon span {
-  margin-right: 30px;
-  height: 100% !important;
+.layout-header .header-menu .header-menu-options .headerButton i {
+  padding: 15px;
 }
-.layout-header .header-menu .header-menu-options .search-icon :hover {
+.layout-header .header-menu .header-menu-options .headerButton :hover {
   color: #7ade4b;
+}
+.layout-header .header-menu .header-menu-options .headerButton .dropdown-content {
+  display: none;
+  margin-left: 0 !important;
+  min-width: 100px;
+  right: 0;
+  z-index: 1003 !important;
+  text-align: right;
+  background-color: #F6F8F9;
+  opacity: 100%;
+  position: absolute;
+}
+.layout-header .header-menu .header-menu-options .headerButton .dropdown-content a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  text-align: right;
+  cursor: pointer;
+  border-bottom: 2px solid #7ade4b;
+  border-left: 2px solid #7ade4b;
+}
+.layout-header .header-menu .header-menu-options .headerButton .dropdown-content a i {
+  padding-left: 15px;
+}
+.layout-header .header-menu .header-menu-options .headerButton .dropdown-content a:hover {
+  background-color: #7ade4b;
+}
+.layout-header .header-menu .header-menu-options .headerButton .show {
+  display: block;
 }
 .layout-header .header-menu .header-menu-options .search-bar {
   display: none;
@@ -281,10 +316,10 @@ html, body {
   font-size: 16px;
   font-weight: bold;
 }
-.layout-header .header-menu .headerNav :hover {
+.layout-header .header-menu .headerNav :hover, .layout-header .header-menu .headerNav .active {
   border-bottom-color: #44ab10;
 }
-.layout-header .header-menu .headerNav :hover a {
+.layout-header .header-menu .headerNav :hover a, .layout-header .header-menu .headerNav .active a {
   color: #44ab10;
 }
 
@@ -455,9 +490,10 @@ html, body {
   position: absolute;
   margin-top: 100px !important;
   width: 100%;
+  min-height: 100%;
 }
 #layout-content .parallax {
-  background-image: url("../../assets/img/GES_Glossy.png");
+  background-image: url("../../assets/img/GES_Main_Header.svg");
   height: 1000px;
   width: 100%;
   background-attachment: fixed;
@@ -532,7 +568,7 @@ html, body {
   width: 100% !important;
   border: none;
   border-radius: 0;
-  background-color: #7ade4b;
+  background-color: transparent;
   margin-top: 60px;
   margin-left: 0;
   margin-right: 0;
@@ -585,20 +621,25 @@ html, body {
   padding: 10px;
   background-image: -webkit-linear-gradient(left, #44ab10, #7ade4b) !important;
 }
+.LoginForm .p-tabview .p-tabview-nav li {
+  margin-top: 5px;
+  margin-left: 2px;
+}
 .LoginForm .p-tabview .p-tabview-nav a {
   background-color: transparent !important;
   color: black;
-  border-color: #fff;
+  border: none !important;
 }
 .LoginForm .p-tabview .p-tabview-nav .p-highlight a {
   background-color: black !important;
   color: #fff !important;
+  border-color: black !important;
 }
 .LoginForm .LoginField {
   margin: 20px auto;
 }
 .LoginForm .LoginField h1 {
-  color: #fff;
+  color: black;
 }
 
 .contact .p-editor-container {
@@ -617,8 +658,8 @@ html, body {
 
 .save-page, .submitPage {
   bottom: 0;
-  position: fixed;
   padding: 15px;
+  float: right;
 }
 .save-page button, .submitPage button {
   width: 100px;
@@ -684,10 +725,13 @@ html, body {
   }
 }
 footer {
+  margin-bottom: 0 !important;
   color: grey;
   text-align: center;
   font-size: 10px;
   background: linear-gradient(#F6F8F9, #7ade4b);
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
 footer img {
   height: 40px;

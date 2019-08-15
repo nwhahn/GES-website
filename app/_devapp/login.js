@@ -227,8 +227,8 @@ export class Login extends Component{
                             {register}
                         </TabPanel>
                     </TabView>
-                    <div id='LoginSubmit' className='LoginField p-col-12 p-md-6'>
-                        <div className={'p-grid'}>
+                    <div id='LoginSubmit' className='LoginField p-col-12'>
+                        <div className={'p-grid p-fluid'}>
                             <div className={'p-col'}>
                                 <Button ref={node=>this.Submit=node} className="submit-btn" onClick={this.submitClick} label={this.state.pages[this.state.activePage]} icon="pi pi-check"/>
                             </div>

@@ -20,8 +20,8 @@ html, body{
   font-weight: bold;
 }
 .store .p-menubar{
-  background-color: $secondary-color!important;
-  border-color:$secondary-color!important;
+  //background-color: $secondary-color!important;
+  //border-color:$secondary-color!important;
 
 }
 
@@ -40,6 +40,7 @@ html, body{
 
   }
 }
+
 .p-highlight a{
   background-color:$primary-color!important;
 }
@@ -74,6 +75,11 @@ html, body{
     display:inline-block;
     padding:15px;
     .section-header-title{
+      color:$primary-color;
+      font-size:36px;
+      text-align: center;
+    }
+    .section-title{
       color:$primary-color;
       font-size:24px;
       display:inline-block;
@@ -204,6 +210,9 @@ html, body{
     i{
       width:inherit;
       line-height:inherit;
+      a{
+        height:100%;
+      }
     }
   }
   .header-menu{
@@ -217,12 +226,13 @@ html, body{
       float:right;
       list-style: none;
       height:$topbar-height;
+      padding:15px;
       margin:0;
       li{
 
         display: inline;
       }
-      .search-icon,.search-bar{
+      .search-bar{
 
 
         height: $topbar-height;
@@ -237,17 +247,53 @@ html, body{
           align-content: center;
         }
       }
-      .search-icon{
-        span{
+      .headerButton{
+        /*span{
           margin-right:$topbar-height/2;
           height:100%!important;
         }
-        width:$topbar-height;
-        height:$topbar-height;
-
+        width:$topbar-height!important;*/
+        i{
+          padding:15px;
+        }
+        //
         :hover{
           color:$secondary-color;
         }
+        .dropdown-content {
+          display: none;
+          margin-left: 0!important;
+          min-width: 100px;
+          right:0;
+          z-index: 1003!important;
+
+          text-align: right;
+          background-color: $background-color;
+          opacity: 100%;
+          position: absolute;
+          a{
+            color: black;
+            text-decoration: none;
+            display: block;
+            text-align: right;
+            cursor:pointer;
+            border-bottom: 2px solid $secondary-color;
+            border-left: 2px solid $secondary-color;
+            i{
+              padding-left:15px;
+            }
+            span{
+
+            }
+          }
+          a:hover{
+            background-color: $secondary-color;
+          }
+        }
+        .show{
+          display:block;
+        }
+
       }
       .search-bar{
         display:none;
@@ -298,7 +344,7 @@ html, body{
         }
 
       }
-      :hover{
+      :hover, .active{
         border-bottom-color: $primary-color;
         a{
           color:$primary-color;
@@ -486,9 +532,10 @@ html, body{
   position:absolute;
   margin-top:$header-height!important;
   width:100%;
-
+  min-height: 100%;
   .parallax{
-    background-image: url("../../assets/img/GES_Glossy.png");
+    //background-image: url("../../assets/img/GES_Glossy.png");
+    background-image: url("../../assets/img/GES_Main_Header.svg");
 
     height: 1000px;
     width:100%;
@@ -585,7 +632,7 @@ html, body{
   width:100%!important;
   border:none;
   border-radius:0;
-  background-color:$secondary-color;
+  background-color: transparent;
   margin-top:$topbar-height;
   margin-left:0;
   margin-right:0;
@@ -642,8 +689,8 @@ html, body{
 .save-page,.submitPage{
 
   bottom: 0;
-  position:fixed;
   padding:15px;
+  float:right;
 
   button{
     width:100px;
@@ -723,15 +770,20 @@ html, body{
 }
 
 footer{
+
   img{
     height:40px;
     width:auto;
     opacity: 0.5;
     filter:grayscale(50%);
   }
+
+  margin-bottom: 0!important;
   color:grey;
   text-align:center;
   font-size:10px;
   background:linear-gradient($background-color,$secondary-color);
+  -moz-user-select:none;
+  -webkit-user-select:none;
 }
 

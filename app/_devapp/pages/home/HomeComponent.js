@@ -5,6 +5,8 @@ import {Link } from 'react-router-dom';
 import {PictureCarousel} from '../../custom_components/picture_carousel'
 import {Menubar} from 'primereact/menubar';
 
+import {DeferredContent} from 'primereact/DeferredContent';
+
 import {Contact} from '../contact/contact';
 import {About} from '../about/about'
 
@@ -51,8 +53,14 @@ export class HomeComponent extends Component{
                   {/* <Menubar className={"homeMenu p-col-12"} model={this.homeMenu}/>*/}
 
                   <div className="p-col-12">
-                      <About ref={el => this.aboutDiv = el}/>
-                      <Contact ref={el => this.contactDiv = el}/>
+                      <DeferredContent>
+                          <About ref={el => this.aboutDiv = el}/>
+
+                      </DeferredContent>
+                      <DeferredContent>
+                          <Contact ref={el => this.contactDiv = el}/>
+                      </DeferredContent>
+
                       {/*<PictureCarousel itemCount={4} items={this.header_carousel_items}/>*/}
                   </div>
 

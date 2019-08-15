@@ -12,6 +12,7 @@ import { render } from 'react-dom';
 import {Growl} from 'primereact/growl';
 import {BreadCrumb} from 'primereact/breadcrumb';
 
+
 import {InputText} from "primereact/inputtext";
 
 //Global Components - user defined
@@ -36,6 +37,8 @@ import {searchResults} from './pages/search/searchResults'
 __webpack_public_path__ = `${window.STATIC_URL}/app/assets/bundle/`;
 
 
+
+
 class Myapp extends Component{
     constructor(props) {
         super(props);
@@ -58,8 +61,13 @@ class Myapp extends Component{
         this.clearMessages=this.clearMessages.bind(this);
         this.onSearchBtnClick=this.onSearchBtnClick.bind(this);
         this.getNavItems=this.getNavItems.bind(this);
-
+        this.toggleOptionMenu=this.toggleOptionMenu.bind(this);
         //console.log(window.location.hash);
+
+    }
+    toggleOptionMenu(){
+
+        this.headerOptionDropdown.classList.toggle('show');
 
     }
     onMenuButtonClick(){
@@ -177,7 +185,7 @@ class Myapp extends Component{
         return nav_items;
     }
     handleClick=(e)=>{
-        if(this.searchBarDiv.classList.contains('active') && !this.searchBarDiv.contains(e.target)){
+        if(this.searchBarDiv.classList.contains('active') && !this.searchBarDiv.contains(e.target) && !this.searchIcon.contains(e.target)){
             this.searchBarDiv.classList.remove('active');
         }
     }
@@ -188,7 +196,7 @@ class Myapp extends Component{
                         </a>;
         let sidebarMenu=<SidebarMenu id='layout-sidebar' visible={this.state.sidebarActive} loggedIn={this.state.loggedIn} hide={this.hideSidebar.bind(this)} logOut={this.logOut.bind(this)} login={this.onLoginButtonClick.bind(this)}/>;
         let account_field;
-        if(this.state.loggedIn) {
+       /* if(this.state.loggedIn) {
             let account_items=[
                 {label: 'My Cart', icon: 'pi pi-fw pi-shopping-cart',command:()=>{ window.location.hash="/store/cart"; }},
                 {label: 'My Quotes', icon: 'pi pi-fw pi-comment',command:()=>{ window.location.hash="/store/quotes"; }},
@@ -206,7 +214,25 @@ class Myapp extends Component{
             account_field=<li className="menu-highlight">
                 {login_button}
             </li>;
+        }*/
+        let menuOptions;
+        if(this.state.loggedIn){
+            menuOptions=[
+                {label: 'My Cart', icon: 'pi pi-fw pi-shopping-cart',command:()=>{ window.location.hash="/store/cart"; }},
+                {label: 'My Quotes', icon: 'pi pi-fw pi-comment',command:()=>{ window.location.hash="/store/quotes"; }},
+                {label: 'My Wishlists', icon: 'pi pi-fw pi-tags',command:()=>{ window.location.hash="/store/wishlists"; }},
+                {label: 'Account Settings', icon: 'pi pi-fw pi-cog', command:()=>{ window.location.hash="/account"; }},
+                {label: 'Sign Out', icon: 'pi pi-fw pi-power-off', command:()=>{this.logOut();}}
+            ];
         }
+        else{
+            menuOptions=[
+                {label: 'Log in', icon: 'pi pi-fw pi-user', command:()=>{this.onLoginButtonClick()}},
+                {label: 'Register', icon: 'pi pi-fw pi-user-plus', command:()=>{this.onLoginButtonClick()}}
+
+            ];
+        }
+
 
 
         const home={icon:'pi pi-home',url:'./'}
@@ -232,13 +258,21 @@ class Myapp extends Component{
 
                                 </div>
                             </li>
-                            <li className={'search-icon'}>
+                            <li ref={el => this.searchIcon = el} className={'search-icon headerButton'}>
                             <span ref={el => this.searchButton = el}>
                                 <i className="pi pi-search" onClick={this.onSearchBtnClick}/>
                             </span>
                             </li>
+                            <li className={'headerOptions headerButton'}>
+                                <i className="optionsButton pi pi-ellipsis-v" onClick={this.toggleOptionMenu}/>
+                                <div  ref={el => this.headerOptionDropdown = el} id={"headerOptionsDropdown"} className="dropdown-content">
+                                    {menuOptions.map((option,index)=>(
+                                        <a onClick={option.command} key={index}><i className={option.icon}/><span>{option.label}</span></a>
+                                    ))}
+                                </div>
+                            </li>
 
-                            {account_field}
+                            {/*account_field*/}
 
                         </ul>
                         {window.location.hash.startsWith('#/store') ? navmenu_store: navmenu_home}
@@ -249,7 +283,6 @@ class Myapp extends Component{
 
 
                 <div id="layout-content" className="p-growl-container">
-
                     <Growl ref={(el) => this.messages = el} />
 
                     <Route exact path="/" component={HomeComponent}/>
@@ -258,6 +291,7 @@ class Myapp extends Component{
                     <Route path="/store" component={Store}/>
                     <Route path={"/about"} component={About}/>
                     <Route path={"/search/:search"} component={searchResults}/>
+
                     {sidebarMenu}
                     <footer>
                         <img src={`${window.IMG_PATH}/geswide.png`}/>

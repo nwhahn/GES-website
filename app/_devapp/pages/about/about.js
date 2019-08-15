@@ -71,8 +71,8 @@ export class About extends Component{
                     <div className="section-content p-grid p-fluid">
                         <div className={"p-col-12"}>
                             <div className={"p-justify-center"}>
-                                {this.state.introText.split('\n').map(function (value) {
-                                    return <div className={"paragraph"}>
+                                {this.state.introText.split('\n').map(function (value,index) {
+                                    return <div className={"paragraph"} key={index}>
                                         {value}
                                     </div>
                                 })}

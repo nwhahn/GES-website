@@ -12,14 +12,21 @@
     border-radius: 4px 4px 0 0;
     padding: 10px;
     background-image: -webkit-linear-gradient(left,$primary-color,$secondary-color)!important;
+    li{
+      margin-top:5px;
+      margin-left:2px;
+    }
+
     a{
       background-color:transparent!important;
       color:$text-color-alt;
-      border-color:$text-color;
+      border:none!important;
     }
     .p-highlight a{
       background-color:$text-color-alt!important;
       color:$text-color!important;
+      border-color:$text-color-alt !important;
+
     }
 
   }
@@ -37,7 +44,7 @@
 
 
   h1 {
-    color: $text-color;
+    color: $text-color-alt;
   }
 
 
