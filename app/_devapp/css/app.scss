@@ -2,11 +2,13 @@
 @import "custom_icons";
 
 
-html, body{
+body{
   background-color:$background-color;
-  height:100%;
-
+  min-height:100%;
+  position:relative;
+  padding-bottom:$footer-height;
 }
+
 .homeMenu{
   margin-top:$topbar-height;
 }
@@ -248,11 +250,7 @@ html, body{
         }
       }
       .headerButton{
-        /*span{
-          margin-right:$topbar-height/2;
-          height:100%!important;
-        }
-        width:$topbar-height!important;*/
+
         i{
           padding:15px;
         }
@@ -343,8 +341,11 @@ html, body{
 
         }
 
+
+
       }
-      :hover, .active{
+
+      .active,li:hover{
         border-bottom-color: $primary-color;
         a{
           color:$primary-color;
@@ -352,6 +353,7 @@ html, body{
       }
 
 
+
     }
 
 
@@ -365,177 +367,14 @@ html, body{
 
 
 }
-/*.layout-header{
-
-
-  background-color:$primary-color;
-  display:block;
-  padding:0;
-  height:$topbar-height;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
-  #HeaderImg{
-      display: inline-block;
-      height:$topbar-height;
-
-      line-height:$topbar-height;
-      a{
-        height:inherit;
-        img{
-          padding:5px;
-          height:inherit;
-        }
-      }
-
-  }
-  .menu-button{
-    display:none;
-    color: $background-color-alt;
-    font-size: 24px;
-    height:$topbar-height;
-    width:$topbar-height;
-    line-height:$topbar-height;
-    text-align: center;
-    cursor: pointer;
-    -webkit-transition: background-color 0.2s;
-    transition: background-color 0.2s;
-    :hover{
-      background-color: $secondary-color;
-    }
-    i{
-      width:inherit;
-      line-height:inherit;
-    }
-  }
-  .header-menu{
-    list-style-type: none;
-    float: right;
-    margin:0;
-    padding: 0;
-    height: 100%;
-    li{
-      display: inline-block;
-      height: 100%;
-      float:right;
-
-
-    }
-    .menu-highlight{
-      span, a{
-        text-decoration: none;
-        color: $background-color-alt;
-        min-width: 120px;
-        display: inline-block;
-        text-align: center;
-        height: 100%;
-        line-height: $topbar-height;
-        -webkit-transition: background-color 0.2s;
-        transition: background-color 0.2s;
-
-      }
-      :hover,:focus{
-        background-color:$secondary-color!important;
-      }
-
-
-    }
-    .account-button{
-      :hover{
-        color:$secondary-color;
-      }
-    }
-    .search-icon,.search-bar{
-      display:inline-block;
-      float:left;
-      height: 100%;
-
-      .search-input{
-        float:left;
-      }
-
-      span{
-        margin:0;
-        width:inherit;
-        height:inherit;
-        text-decoration: none;
-        color: $text-color;
-        text-align:center;
-        line-height: $topbar-height;
-        :hover{
-          color:$background-color-alt;
-        }
-
-      }
-      .search-field{
-        padding:5px;
-        height:inherit;
-        input{
-          width:400px;
-        }
-
-        margin:5px auto;
-        align-content: center;
-      }
-
-
-
-    }
-    .search-bar{
-      display:none;
-    }
-    .active{
-      display:inline-block!important;
-      -webkit-transition: all .6s linear;
-      -moz-transition: all .6s linear;
-      -o-transition: all .6s linear;
-      transition: all .6s linear;
-    }
-
-    .search-icon{
-      width:$topbar-height;
-    }
-    .menu-highlight{
-      background-color:darken($primary-color,7%);
-    }
-    .account-button{
-     li{
-       float:left!important;
-       width:100%;
-     }
-      height: 100%;
-      .p-menu{
-        .p-menu-item{
-
-        }
-      }
-      .p-button{
-          width:$topbar-height;
-          height:$topbar-height;
-          background-color:darken($primary-color,7%);
-
-
-
-      }
-
-    }
-
-  }
-
-}
-
- */
 #layout-content{
   position:absolute;
   margin-top:$header-height!important;
   width:100%;
   min-height: 100%;
   .parallax{
-    //background-image: url("../../assets/img/GES_Glossy.png");
-    background-image: url("../../assets/img/GES_Main_Header.svg");
+    background-image: url("../../assets/img/GES_Glossy.png");
+    //background-image: url("../../assets/img/GES_Main_Header.svg");
 
     height: 1000px;
     width:100%;
@@ -550,9 +389,7 @@ html, body{
       padding:20px;
     }
   }
-  #sidebarMenu{
 
-  }
   .pictureCarousel{
 
       padding:10px;
@@ -732,25 +569,26 @@ html, body{
     .p-sidebar-close{
       font-size:24px;
     }
-    #sidebarMenu{
-      padding:0;
-      top:$content-offset;
-      .p-inputgroup{
-        display:inline-block;
-        padding:10px;
-        align-content: center;
-        margin:auto;
-      }
-      .p-sidebar-close{
-        display:none;
-      }
-      .p-menu{
-        width:100%!important;
-        border:none!important;
-      }
-     // padding-top: $topbar-height;
-    }
 
+
+  }
+  #sidebarMenu{
+    padding:0;
+    top:$content-offset;
+    .p-inputgroup{
+      display:inline-block;
+      padding:10px;
+      align-content: center;
+      margin:auto;
+    }
+    .p-sidebar-close{
+      display:none;
+    }
+    .p-menu{
+      width:100%!important;
+      border:none!important;
+    }
+    // padding-top: $topbar-height;
   }
   #nav-menu{
     display:none;
@@ -777,8 +615,9 @@ footer{
     opacity: 0.5;
     filter:grayscale(50%);
   }
-
-  margin-bottom: 0!important;
+  position: absolute;
+  left: 0 ; right: 0; bottom: 0;
+  height:$footer-height;
   color:grey;
   text-align:center;
   font-size:10px;

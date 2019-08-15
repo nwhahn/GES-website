@@ -220,11 +220,15 @@ export class Login extends Component{
                     </div>
                     <TabView className='p-md-12' activeIndex={this.state.activePage} onTabChange={(e) => this.setState({activePage: e.index})}>
                         <TabPanel header="Sign In">
-                            {shared}
+                            <form>
+                                {shared}
+                            </form>
                         </TabPanel>
                         <TabPanel header="Register">
-                            {shared}
-                            {register}
+                            <form>
+                                {shared}
+                                {register}
+                            </form>
                         </TabPanel>
                     </TabView>
                     <div id='LoginSubmit' className='LoginField p-col-12'>

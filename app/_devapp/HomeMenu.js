@@ -58,14 +58,15 @@ export class HomeMenu extends Component{
                 icon:'pi pi-fw pi-home', url:'./#/'
             },
             {
+                label:'Lighting Showroom', url:'./#/showroom'
+            },
+            {
                 label:'Lamp Repair'
             },
             {
                 label:'Materials Counter'
             },
-            {
-                label:'Lighting Department'
-            },
+
             {label:'About Us',icon:'pi pi-fw pi-info',url:'./#/about'},
             {label:'Contact',icon:'pi pi-fw pi-user',url:'./#/contact/'},
             {

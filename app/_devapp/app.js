@@ -27,6 +27,7 @@ import {AccountSettings} from './pages/account/account_settings'
 import {Contact} from './pages/contact/contact'
 import {Store} from './pages/store/store'
 import {About} from './pages/about/about'
+import {LightingShowroom} from './pages/showroom/LightingShowroom'
 import {searchResults} from './pages/search/searchResults'
 //import { asyncComponent } from 'react-async-component';
 
@@ -48,9 +49,9 @@ class Myapp extends Component{
             contentPage:'main',
             loginScreen:false,
             loggedIn:true,
-            search:''
+            search:'',
         };
-        document.addEventListener("mousedown", this.handleClick,false)
+        document.addEventListener("mousedown", this.handleClick,false);
         this.onMenuButtonClick=this.onMenuButtonClick.bind(this);
         this.onMenuButtonKeyDown = this.onMenuButtonKeyDown.bind(this);
         this.onLoginButtonClick=this.onLoginButtonClick.bind(this);
@@ -62,7 +63,17 @@ class Myapp extends Component{
         this.onSearchBtnClick=this.onSearchBtnClick.bind(this);
         this.getNavItems=this.getNavItems.bind(this);
         this.toggleOptionMenu=this.toggleOptionMenu.bind(this);
+        this.getHeaderImgPath=this.getHeaderImgPath.bind(this);
         //console.log(window.location.hash);
+
+    }
+    getHeaderImgPath(){
+        if(window.location.href.includes('#/showroom')){
+            return `${window.IMG_PATH}/GES_Lighting_Showroom_Header.svg`;
+        }
+        else{
+            return `${window.IMG_PATH}/GES_Main_Header.svg`;
+        }
 
     }
     toggleOptionMenu(){
@@ -191,30 +202,8 @@ class Myapp extends Component{
     }
     render() {
         let loginPage=<Login visible={this.state.loginScreen} hide={this.hideLogin.bind(this)}/>;
-        let login_button= <a ref={el => this.loginButton = el} onClick={this.onLoginButtonClick} onKeyDown={this.onLoginButtonKeyDown}>
-                            Login
-                        </a>;
-        let sidebarMenu=<SidebarMenu id='layout-sidebar' visible={this.state.sidebarActive} loggedIn={this.state.loggedIn} hide={this.hideSidebar.bind(this)} logOut={this.logOut.bind(this)} login={this.onLoginButtonClick.bind(this)}/>;
-        let account_field;
-       /* if(this.state.loggedIn) {
-            let account_items=[
-                {label: 'My Cart', icon: 'pi pi-fw pi-shopping-cart',command:()=>{ window.location.hash="/store/cart"; }},
-                {label: 'My Quotes', icon: 'pi pi-fw pi-comment',command:()=>{ window.location.hash="/store/quotes"; }},
-                {label: 'My Wishlists', icon: 'pi pi-fw pi-tags',command:()=>{ window.location.hash="/store/wishlists"; }},
-                {label: 'Account Settings', icon: 'pi pi-fw pi-cog', command:()=>{ window.location.hash="/account"; }},
-                {label: 'Sign Out', icon: 'pi pi-fw pi-power-off', command:()=>{this.logOut();}}
-            ];
-            account_field=<li className={"account-button"}>
-                            <Menu model={account_items} popup={true} ref={el => this.accountMenu = el}/>
-                            <Button className="p-button-success" icon="pi pi-user" onClick={(event) => this.accountMenu.toggle(event)}/>
-                        </li>;
 
-        }
-        else{
-            account_field=<li className="menu-highlight">
-                {login_button}
-            </li>;
-        }*/
+        let sidebarMenu=<SidebarMenu id='layout-sidebar' visible={this.state.sidebarActive} loggedIn={this.state.loggedIn} hide={this.hideSidebar.bind(this)} logOut={this.logOut.bind(this)} login={this.onLoginButtonClick.bind(this)}/>;
         let menuOptions;
         if(this.state.loggedIn){
             menuOptions=[
@@ -232,6 +221,12 @@ class Myapp extends Component{
 
             ];
         }
+        /*if(window.location.href.contains('/showroom/')){
+            this.setState({header_image:'GES_Lighting_Showroom_Header.svg'})
+        }
+        else{
+
+        }*/
 
 
 
@@ -246,7 +241,8 @@ class Myapp extends Component{
                     </span>
                     <div id='HeaderImg'>
                         <Link to="/">
-                            <img alt="logo" src={`${window.IMG_PATH}/GES_Main_Header.svg`} />
+
+                            <img alt="logo" src={this.getHeaderImgPath()} />
                         </Link>
                     </div>
                     <div className={"header-menu"}>
@@ -275,7 +271,7 @@ class Myapp extends Component{
                             {/*account_field*/}
 
                         </ul>
-                        {window.location.hash.startsWith('#/store') ? navmenu_store: navmenu_home}
+                        {navmenu_home}
 
                     </div>
 
@@ -291,14 +287,17 @@ class Myapp extends Component{
                     <Route path="/store" component={Store}/>
                     <Route path={"/about"} component={About}/>
                     <Route path={"/search/:search"} component={searchResults}/>
-
-                    {sidebarMenu}
+                    <Route path="/showroom" component={LightingShowroom}/>
                     <footer>
                         <img src={`${window.IMG_PATH}/geswide.png`}/>
                         <div>© Copyright - 2019 Generation Electrical Supply & Lighting </div>
 
                     </footer>
                 </div>
+
+                {sidebarMenu}
+
+
                 {loginPage}
             </div>
 
