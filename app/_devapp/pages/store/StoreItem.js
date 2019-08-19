@@ -16,10 +16,15 @@ export class StoreItem extends Component{
             rating:3,
             SKU:'663WG',
             price:'$1.60',
-            UOM:'ea'
+            UOM:'ea',
+            add_to_submenu:[
+                {label:'Add to Quote',icon: 'pi pi-shopping-cart'},
+                {label:'Add to Wishlist',icon:'pi pi-tags'},
+                {label:'Add to Comparison',icon:'pi pi-chart-bar'},
+            ]
         }
 
-
+       // console.log(this.props);
         /*this.state={
             id:this.props.unid,
             mfq:'Manufacturer',
@@ -57,69 +62,69 @@ export class StoreItem extends Component{
         window.location.hash=(baseProductUrl+this.state.id);
     }*/
     render(){
-        return(
-          <div className={"storeItem"}>
-              <div className="p-grid p-justify-center">
-                  <div className="center p-col-8 p-offset-1">
-                      <img alt="productImg" src={this.state.img}/>
-                  </div>
-
-                  <div className={"p-col-12"}>
-                      <h1>{this.state.title}</h1>
-                  </div>
-                  <div className={"p-col-12"}>
-                      {this.state.mfq}
-                  </div>
-                  <div className={"p-col-12"}>
-                      <span>{this.state.price}/{this.state.UOM}</span>
-
-                  </div>
-                  <Rating value={this.state.rating} stars={5} readonly={true} cancel={false}/>
-                  <div className={"p-col-12"}>
-                      <table>
-                          <tr>
-                              <td>SKU</td>
-                              <td>:</td>
-                              <td>{this.state.SKU}</td>
-                          </tr>
-                      </table>
-                  </div>
-              </div>
-          </div>
 
 
-        );
-
-
-
-        /*return(
-
-
-            <div className={"storeItem"} onClick={(e)=>this.handleClick(e)}>
-                <div className="p-grid p-justify-center">
-                    <div className={"p-col-1"}>
-                        {(this.state.new===true) ? <div className={"new-icon"}/> : null }
-                    </div>
-                    <div className="center p-col-8 p-offset-1">
-                        <img alt="productImg" src={this.state.img}/>
-                    </div>
-                    <div className={"p-col-12"}>
-                        {this.state.mfq}
-                    </div>
-                    <div className={"p-col-12"}>
-                        {this.state.name}
-                    </div>
-                    <Rating value={this.state.rating} stars={5} readonly={true} cancel={false}/>
-                    <div className={"p-col-12"}>
-                        {this.state.desc}
-                    </div>
-                    <div className={"p-col-6"}>
-                        <SplitButton label="Add to Cart" icon="pi pi-shopping-cart" model={this.state.add_to_submenu} className={"p-button-success"}/>
+        let cartButton=<SplitButton label="Add to Cart" icon="pi pi-shopping-cart" model={this.state.add_to_submenu} className={"p-button-success"}/>;
+        let price= <span>{this.state.price}/{this.state.UOM}</span>;
+        let stats=<table>
+                        <tbody>
+                        <tr>
+                            <td>SKU</td>
+                                <td>:</td>
+                                <td>{this.state.SKU}</td>
+                            </tr>
+                        </tbody>
+                    </table>;
+        if(this.props.layout==='list'){
+            return(
+                <div className={"storeItem"}>
+                    <div className="p-grid p-justify-center">
+                        <div className={"p-col-3"}>
+                            <img alt="productImg" src={this.state.img}/>
+                        </div>
+                        <div className={"p-col-3"}>
+                            <h1>{this.state.title}</h1>
+                            {this.state.mfq}
+                        </div>
+                        <div className={"p-col-3"}>
+                            {stats}
+                        </div>
+                        <div className={"p-col-3"}>
+                            <div>{price}</div>
+                            {cartButton}
+                        </div>
                     </div>
                 </div>
-            </div>
+            );
+        }
+        else{
+            return(
+                <div className={"storeItem"}>
+                    <div className="p-grid p-justify-center">
+                        <div className="center p-col-8 p-offset-1">
+                            <img alt="productImg" src={this.state.img}/>
+                        </div>
 
-        );*/
+                        <div className={"p-col-12"}>
+                            <h1>{this.state.title}</h1>
+                        </div>
+                        <div className={"p-col-12"}>
+                            {this.state.mfq}
+                        </div>
+                        <div className={"p-col-12"}>
+                            {price}
+                        </div>
+                        <Rating value={this.state.rating} stars={5} readonly={true} cancel={false}/>
+                        <div className={"p-col-12"}>
+                            {stats}
+                        </div>
+                    </div>
+                </div>
+
+
+            );
+        }
+
 
 
     }

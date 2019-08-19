@@ -19,7 +19,7 @@ export class Login extends Component{
         this.handleEmail=this.handleEmail.bind(this);
         document.addEventListener("mousedown", this.handleClick,false);
         this.state={
-            activePage:0,
+            activePage:this.props.initialState,
             pages:['Sign In','Register'],
             icon:'',
             email:'',
@@ -172,7 +172,7 @@ export class Login extends Component{
             </div>
             <div id='LoginPassword' className='LoginField p-col-12 p-offset-6'>
                             <span className="p-float-label">
-                                <Password id="input-password" value={this.state.password} onChange={(e) => this.setState({password: e.target.value})}/>
+                                <Password id="input-password" value={this.state.password} onChange={(e) => this.setState({password: e.target.value})} autoComplete="off"/>
                                 <label htmlFor="input-password">Password</label>
                             </span>
             </div>

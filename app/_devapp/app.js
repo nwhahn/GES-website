@@ -50,6 +50,7 @@ class Myapp extends Component{
             loginScreen:false,
             loggedIn:true,
             search:'',
+            initialLoginWindow:0
         };
         document.addEventListener("mousedown", this.handleClick,false);
         this.onMenuButtonClick=this.onMenuButtonClick.bind(this);
@@ -140,7 +141,8 @@ class Myapp extends Component{
             loginScreen:false
         })
     }
-    onLoginButtonClick(){
+    onLoginButtonClick(initialTab=0){
+        this.setState({initialLoginWindow:initialTab})
         this.showLogin();
     }
     onLoginButtonKeyDown(event){
@@ -201,7 +203,7 @@ class Myapp extends Component{
         }
     }
     render() {
-        let loginPage=<Login visible={this.state.loginScreen} hide={this.hideLogin.bind(this)}/>;
+        let loginPage=<Login visible={this.state.loginScreen} hide={this.hideLogin.bind(this)} initialState={this.state.InitialLoginWindow}/>;
 
         let sidebarMenu=<SidebarMenu id='layout-sidebar' visible={this.state.sidebarActive} loggedIn={this.state.loggedIn} hide={this.hideSidebar.bind(this)} logOut={this.logOut.bind(this)} login={this.onLoginButtonClick.bind(this)}/>;
         let menuOptions;
@@ -217,7 +219,7 @@ class Myapp extends Component{
         else{
             menuOptions=[
                 {label: 'Log in', icon: 'pi pi-fw pi-user', command:()=>{this.onLoginButtonClick()}},
-                {label: 'Register', icon: 'pi pi-fw pi-user-plus', command:()=>{this.onLoginButtonClick()}}
+                {label: 'Register', icon: 'pi pi-fw pi-user-plus', command:()=>{this.onLoginButtonClick(1)}}
 
             ];
         }

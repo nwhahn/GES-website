@@ -23,25 +23,22 @@ export class StoreHome extends Component{
         };
         this.itemTemplate = this.itemTemplate.bind(this);
         this.renderHeader=this.renderHeader.bind(this);
-        this.onChangePriceSlider=this.onChangePriceSlider.bind(this);
+        //this.onChangePriceSlider=this.onChangePriceSlider.bind(this);
     }
     itemTemplate(item){
 
         if(this.state.layout==='list'){
             return(
-                <div className={"p-col-12"}><StoreItem/></div>
+                <div className={"p-col-12"}><StoreItem id={item} layout={this.state.layout}/></div>
             );
         }
         else if(this.state.layout==='grid'){
             return(
-                <div className={"p-col-12 p-lg-3 p-md-4 p-sm-6"}><StoreItem id={item}/></div>
+                <div className={"p-col-12 p-lg-3 p-md-4 p-sm-6"}><StoreItem id={item} layout={this.state.layout}/></div>
             );
 
         }
 //return item;
-    }
-    onChangePriceSlider(e){
-
     }
     onSortChange(event) {
         const value = event.value;
